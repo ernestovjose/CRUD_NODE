@@ -1,0 +1,31 @@
+{
+  "name": "CRUD_NODE",
+  "version": "1.0.0",
+  "description": "Practica",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon src/servidor.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ernestovjose/CRUD_NODE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ernestovjose/CRUD_NODE/issues"
+  },
+  "homepage": "https://github.com/ernestovjose/CRUD_NODE#readme",
+  "dependencies": {
+    "ejs": "^3.0.1",
+    "express": "^4.17.1",
+    "express-myconnection": "^1.0.4",
+    "morgan": "^1.9.1",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
