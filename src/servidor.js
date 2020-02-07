@@ -1,15 +1,20 @@
 // Solicitamos express y lo asignamos a una variable
 const express = require('express');
 const servidor = express();
+
 // Solicitamos el modulo path para poder concatenar los directorios y asignar la carpeta donde estaran las vistas 
 // si las vistas no estuvieran en su carpeta este paso se omitiria
 const path = require('path'); 
+
 // Solicitamos al modulo morgan para porder leer que peticiones o acciones odurren en el servidor
 const morgan = require('morgan');
+
 //solicitamos el modulo de mysql y el de conexion para la base de datos
 const mysql = require('mysql');
 const myConnection = require('express-myconnection')
 
+// importando rutas
+const rutascliente = require('./rutas/clientes');
 
 // Ajustes
 
@@ -27,7 +32,13 @@ servidor.use(myConnection(mysql, {
     database: 'crudnode'
 }, 'single')) 
 
+servidor.use(express.urlencoded({extended: false}));// esta nos permite recibir lo que se guarde de la pagina basicamente lo traduce para nosotros por un body
+
 // Rutas a donde se direccionaran las acciones
+servidor.use('/', rutascliente);
+
+// archivos estaticos
+servidor.use(express.static(path.join(__dirname, '/publica')));
 
 // Ejecucuion del servidor
 servidor.listen(servidor.get('port'), () => {
